@@ -1,4 +1,4 @@
-# Baseline Personal
+# aero
 
 Это рабочая ветка для личной версии темы [Baseline](https://github.com/svnaxis/obsidian-baseline).
 
@@ -21,8 +21,8 @@
 ## Как установить свою тему
 
 1. В GitHub выбери ветку `personal-customization`, затем `Code → Download ZIP`.
-2. Распакуй архив; скопируй `theme.css` и `manifest.json` в `<Твоё хранилище>/.obsidian/themes/Baseline Personal/`.
-3. В Obsidian открой `Настройки → Оформление → Темы`, выбери **Baseline Personal**.
+2. Распакуй архив; скопируй `theme.css` и `manifest.json` в `<Твоё хранилище>/.obsidian/themes/aero/`.
+3. В Obsidian открой `Настройки → Оформление → Темы`, выбери **aero**.
 4. Установи и включи сторонний плагин **Style Settings**, если ещё не установлен.
 5. Открой `Style Settings → Мои настройки`.
 
