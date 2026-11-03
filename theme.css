@@ -3611,7 +3611,7 @@ body.minimal-theme .workspace::before {
 /*!
 /* @settings
 
-name: Baseline
+name: aero
 id: baseline-style
 settings:
 	-
@@ -14087,7 +14087,7 @@ https://tiniri.vlad.studio/
   --text-highlight-bg: #ad514c44;
 }
 
-/* Baseline Personal: optional custom controls.
+/* aero: optional personal controls.
    Everything is scoped to Style Settings classes.
    Disable a toggle to return to the original Baseline behaviour. */
 /* Rounded corners for key editor surfaces. */
