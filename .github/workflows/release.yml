@@ -31,12 +31,13 @@ jobs:
         run: |
           test -s theme.css
           test -s manifest.json
+          test -s LICENSE.txt
           grep -q "id: personal-options" theme.css
       - name: Publish release for Obsidian / BRAT
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
-          gh release create "$RELEASE_TAG" manifest.json theme.css \
+          gh release create "$RELEASE_TAG" manifest.json theme.css LICENSE.txt \
             --title "aero $RELEASE_TAG" \
             --generate-notes
