@@ -1,0 +1,65 @@
+/* Baseline Personal: optional custom controls.
+   Everything is scoped to Style Settings classes.
+   Disable a toggle to return to the original Baseline behaviour. */
+
+/* Rounded corners for key editor surfaces. */
+body.personal-rounded {
+  --radius-s: calc(var(--personal-radius, 12px) * 0.66);
+  --radius-m: var(--personal-radius, 12px);
+  --radius-l: calc(var(--personal-radius, 12px) * 1.33);
+  --image-radius: var(--personal-radius, 12px);
+  --callout-radius: var(--personal-radius, 12px);
+  --embed-radius: var(--personal-radius, 12px);
+  --nav-item-radius: var(--personal-radius, 12px);
+}
+body.personal-rounded .markdown-rendered :is(img:not(.emoji), blockquote, pre, .callout, .markdown-embed),
+body.personal-rounded .markdown-rendered table {
+  border-radius: var(--personal-radius, 12px);
+}
+body.personal-rounded .markdown-rendered table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Real backdrop filter, with translucent paint instead of an opaque banner. */
+body.personal-glass-headers {
+  --personal-glass-surface: color-mix(in srgb, var(--background-secondary) var(--personal-glass-opacity, 35%), transparent);
+}
+body.personal-glass-headers :is(.workspace .mod-root .view-header, .workspace .mod-root .workspace-tab-header-container, .status-bar, .mobile-navbar) {
+  background-color: var(--personal-glass-surface) !important;
+  -webkit-backdrop-filter: blur(var(--personal-glass-blur, 22px)) saturate(160%);
+  backdrop-filter: blur(var(--personal-glass-blur, 22px)) saturate(160%);
+}
+
+/* Action icons keep their hover/focus affordances. */
+body.personal-clean-icons :is(.view-header, .workspace-tab-header-container) .clickable-icon:not(:hover, :focus-visible, .is-active) {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Cleaner file explorer, without indentation lines. */
+body.personal-clean-tree {
+  --nav-indentation-guide-width: 0px;
+  --nav-indentation-guide-color: transparent;
+}
+body.personal-clean-tree .nav-folder-children {
+  border-inline-start: 0 !important;
+}
+
+/* Less air between editor headings and tighter long-heading line height. */
+body.personal-compact-headings {
+  --heading-spacing: 1.5rem;
+  --h1-line-height: 1.28;
+  --h2-line-height: 1.28;
+  --h3-line-height: 1.3;
+  --h4-line-height: 1.3;
+}
+body.personal-compact-headings .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.3;
+}
+
+/* More visible selection without changing the explorer's structure. */
+body.personal-active-folders .nav-files-container :is(.nav-folder-title.is-active, .nav-file-title.is-active) {
+  border-radius: var(--personal-radius, 12px);
+  box-shadow: inset 0 0 0 1px var(--background-modifier-border-hover);
+}
