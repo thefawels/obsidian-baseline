@@ -1,0 +1,13 @@
+{
+  "name": "baseline-personal-theme",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Full-source customizable Obsidian theme derived from svnaxis Baseline",
+  "scripts": {
+    "build": "sass --no-source-map src/theme.scss theme.css",
+    "watch": "sass --watch --no-source-map src/theme.scss theme.css"
+  },
+  "devDependencies": {
+    "sass": "1.93.3"
+  }
+}
