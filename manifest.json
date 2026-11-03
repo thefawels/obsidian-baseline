@@ -1,8 +1,7 @@
 {
   "name": "Baseline Personal",
-  "version": "4.1.0",
+  "version": "1.0.0",
   "minAppVersion": "1.14.0",
-  "author": "Alexis C",
-  "authorUrl": "https://github.com/svnaxis",
-  "fundingUrl": "https://www.buymeacoffee.com/svnaxis"
+  "author": "thefawels (based on Baseline by svnaxis)",
+  "authorUrl": "https://github.com/thefawels"
 }
