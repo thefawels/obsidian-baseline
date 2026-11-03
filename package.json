@@ -1,8 +1,8 @@
 {
-  "name": "baseline-personal-theme",
+  "name": "aero-obsidian-theme",
   "private": true,
   "version": "1.0.0",
-  "description": "Full-source customizable Obsidian theme derived from svnaxis Baseline",
+  "description": "aero: personal Obsidian theme based on the complete Baseline source",
   "scripts": {
     "build": "sass --no-source-map src/theme.scss theme.css",
     "watch": "sass --watch --no-source-map src/theme.scss theme.css"
