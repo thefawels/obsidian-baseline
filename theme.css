@@ -6882,6 +6882,70 @@ settings:
 		format: hex
 		default-light: '#'
 		default-dark: '#'
+
+	-
+		id: personal-options
+		title: Мои настройки
+		type: heading
+		level: 1
+		collapsed: false
+	-
+		id: personal-rounded
+		title: Скруглённый интерфейс
+		description: Скругления изображений, таблиц, блоков и элементов интерфейса.
+		type: class-toggle
+	-
+		id: personal-radius
+		title: Радиус скруглений
+		type: variable-number-slider
+		default: 12
+		min: 4
+		max: 24
+		step: 2
+		format: px
+	-
+		id: personal-glass-headers
+		title: Полупрозрачные панели
+		description: Прозрачность и размытие верхних и нижних панелей.
+		type: class-toggle
+	-
+		id: personal-glass-blur
+		title: Сила размытия
+		type: variable-number-slider
+		default: 22
+		min: 0
+		max: 48
+		step: 2
+		format: px
+	-
+		id: personal-glass-opacity
+		title: Непрозрачность панелей
+		type: variable-number-slider
+		default: 35
+		min: 10
+		max: 90
+		step: 5
+		format: '%'
+	-
+		id: personal-clean-icons
+		title: Чистые кнопки сверху
+		description: Убрать фон кнопок в обычном состоянии, сохранив подсветку при наведении.
+		type: class-toggle
+	-
+		id: personal-clean-tree
+		title: Проводник без линий
+		description: Скрыть линии вложенности файлов и папок.
+		type: class-toggle
+	-
+		id: personal-compact-headings
+		title: Компактные заголовки
+		description: Уменьшить вертикальные отступы и межстрочное расстояние.
+		type: class-toggle
+	-
+		id: personal-active-folders
+		title: Выделение в проводнике
+		description: Добавить обводку к выбранному файлу или папке.
+		type: class-toggle
 */
 .style-settings-heading {
   margin-block: 0 !important;
@@ -14035,4 +14099,70 @@ https://tiniri.vlad.studio/
   --text-accent-hover: #e07575;
   --text-selection: #353a42;
   --text-highlight-bg: #ad514c44;
+}
+
+/* Baseline Personal: optional custom controls.
+   Everything is scoped to Style Settings classes.
+   Disable a toggle to return to the original Baseline behaviour. */
+
+/* Rounded corners for key editor surfaces. */
+body.personal-rounded {
+  --radius-s: calc(var(--personal-radius, 12px) * 0.66);
+  --radius-m: var(--personal-radius, 12px);
+  --radius-l: calc(var(--personal-radius, 12px) * 1.33);
+  --image-radius: var(--personal-radius, 12px);
+  --callout-radius: var(--personal-radius, 12px);
+  --embed-radius: var(--personal-radius, 12px);
+  --nav-item-radius: var(--personal-radius, 12px);
+}
+body.personal-rounded .markdown-rendered :is(img:not(.emoji), blockquote, pre, .callout, .markdown-embed),
+body.personal-rounded .markdown-rendered table {
+  border-radius: var(--personal-radius, 12px);
+}
+body.personal-rounded .markdown-rendered table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Real backdrop filter, with translucent paint instead of an opaque banner. */
+body.personal-glass-headers {
+  --personal-glass-surface: color-mix(in srgb, var(--background-secondary) var(--personal-glass-opacity, 35%), transparent);
+}
+body.personal-glass-headers :is(.workspace .mod-root .view-header, .workspace .mod-root .workspace-tab-header-container, .status-bar, .mobile-navbar) {
+  background-color: var(--personal-glass-surface) !important;
+  -webkit-backdrop-filter: blur(var(--personal-glass-blur, 22px)) saturate(160%);
+  backdrop-filter: blur(var(--personal-glass-blur, 22px)) saturate(160%);
+}
+
+/* Action icons keep their hover/focus affordances. */
+body.personal-clean-icons :is(.view-header, .workspace-tab-header-container) .clickable-icon:not(:hover, :focus-visible, .is-active) {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Cleaner file explorer, without indentation lines. */
+body.personal-clean-tree {
+  --nav-indentation-guide-width: 0px;
+  --nav-indentation-guide-color: transparent;
+}
+body.personal-clean-tree .nav-folder-children {
+  border-inline-start: 0 !important;
+}
+
+/* Less air between editor headings and tighter long-heading line height. */
+body.personal-compact-headings {
+  --heading-spacing: 1.5rem;
+  --h1-line-height: 1.28;
+  --h2-line-height: 1.28;
+  --h3-line-height: 1.3;
+  --h4-line-height: 1.3;
+}
+body.personal-compact-headings .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.3;
+}
+
+/* More visible selection without changing the explorer's structure. */
+body.personal-active-folders .nav-files-container :is(.nav-folder-title.is-active, .nav-file-title.is-active) {
+  border-radius: var(--personal-radius, 12px);
+  box-shadow: inset 0 0 0 1px var(--background-modifier-border-hover);
 }
