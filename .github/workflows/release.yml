@@ -1,9 +1,9 @@
-name: Release Obsidian theme
+name: Publish Baseline Personal
 
 on:
   push:
     tags:
-      - "*"
+      - "v*"
 
 permissions:
   contents: write
@@ -12,16 +12,31 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout tagged source
         uses: actions/checkout@v4
-
-      - name: Create release
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Sass
+        run: npm install --no-audit --no-fund
+      - name: Build final theme.css from all source modules
+        run: npm run build
+      - name: Check tag and manifest versions
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.ref_name }}
+          RELEASE_TAG: ${{ github.ref_name }}
         run: |
-          gh release create "$TAG_NAME" \
-            --title="$TAG_NAME" \
-            --generate-notes \
-            --draft \
-            manifest.json theme.css
+          node -e 'const m=require("./manifest.json"); const expected="v"+m.version; if(process.env.RELEASE_TAG!==expected){console.error("Release tag must be "+expected); process.exit(1)}'
+      - name: Verify release assets
+        run: |
+          test -s theme.css
+          test -s manifest.json
+          grep -q "id: personal-options" theme.css
+      - name: Publish release for Obsidian / BRAT
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" manifest.json theme.css \
+            --title "Baseline Personal $RELEASE_TAG" \
+            --generate-notes
