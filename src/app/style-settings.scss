@@ -3270,6 +3270,70 @@ settings:
 		format: hex
 		default-light: '#'
 		default-dark: '#'
+
+	-
+		id: personal-options
+		title: Мои настройки
+		type: heading
+		level: 1
+		collapsed: false
+	-
+		id: personal-rounded
+		title: Скруглённый интерфейс
+		description: Скругления изображений, таблиц, блоков и элементов интерфейса.
+		type: class-toggle
+	-
+		id: personal-radius
+		title: Радиус скруглений
+		type: variable-number-slider
+		default: 12
+		min: 4
+		max: 24
+		step: 2
+		format: px
+	-
+		id: personal-glass-headers
+		title: Полупрозрачные панели
+		description: Прозрачность и размытие верхних и нижних панелей.
+		type: class-toggle
+	-
+		id: personal-glass-blur
+		title: Сила размытия
+		type: variable-number-slider
+		default: 22
+		min: 0
+		max: 48
+		step: 2
+		format: px
+	-
+		id: personal-glass-opacity
+		title: Непрозрачность панелей
+		type: variable-number-slider
+		default: 35
+		min: 10
+		max: 90
+		step: 5
+		format: '%'
+	-
+		id: personal-clean-icons
+		title: Чистые кнопки сверху
+		description: Убрать фон кнопок в обычном состоянии, сохранив подсветку при наведении.
+		type: class-toggle
+	-
+		id: personal-clean-tree
+		title: Проводник без линий
+		description: Скрыть линии вложенности файлов и папок.
+		type: class-toggle
+	-
+		id: personal-compact-headings
+		title: Компактные заголовки
+		description: Уменьшить вертикальные отступы и межстрочное расстояние.
+		type: class-toggle
+	-
+		id: personal-active-folders
+		title: Выделение в проводнике
+		description: Добавить обводку к выбранному файлу или папке.
+		type: class-toggle
 */
 
 .style-settings-heading {
