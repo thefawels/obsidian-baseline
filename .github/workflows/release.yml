@@ -1,4 +1,4 @@
-name: Publish Baseline Personal
+name: Publish aero
 
 on:
   push:
@@ -38,5 +38,5 @@ jobs:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
           gh release create "$RELEASE_TAG" manifest.json theme.css \
-            --title "Baseline Personal $RELEASE_TAG" \
+            --title "aero $RELEASE_TAG" \
             --generate-notes
