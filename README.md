@@ -1,6 +1,6 @@
-# Baseline Personal
+# aero
 
-Собственная версия [Baseline](https://github.com/svnaxis/obsidian-baseline) для Obsidian с **полными исходниками**, оригинальными стилями и функциями, а также отдельными персональными настройками.
+**aero** — собственная версия [Baseline](https://github.com/svnaxis/obsidian-baseline) для Obsidian с **полными исходниками**, оригинальными стилями и функциями, а также отдельными персональными настройками.
 
 > Неофициальная модификация. Автор оригинальной Baseline: [svnaxis](https://github.com/svnaxis). Оригинальная лицензия MIT сохранена в `LICENSE.txt`, исходное описание — в `UPSTREAM_README.md`.
 
@@ -19,7 +19,7 @@
 1. Установи и включи плагин BRAT в Obsidian.
 2. В BRAT используй **Add / Grab a beta theme for testing**.
 3. Введи URL **своего нового репозитория** (не ссылка на эту рабочую ветку).
-4. После загрузки выбери тему **Baseline Personal** в `Настройки → Оформление → Темы`.
+4. После загрузки выбери тему **aero** в `Настройки → Оформление → Темы`.
 
 BRAT загружает готовые `theme.css` и `manifest.json` из основной ветки. Для получения обновлений при каждом изменении SCSS используется GitHub Actions, автоматически обновляющий `theme.css`.
 
@@ -29,7 +29,7 @@ BRAT загружает готовые `theme.css` и `manifest.json` из ос�
 
 1. Перейди на **https://github.com/new/import**.
 2. Укажи Source repository URL: `https://github.com/thefawels/obsidian-baseline.git`.
-3. Owner: `thefawels`, Name: например, `baseline-personal`, видимость: Public (для BRAT это проще).
+3. Owner: `thefawels`, Name: например, `aero`, видимость: Public (для BRAT это проще).
 4. После импорта открой **Settings → Branches → Default branch** нового репозитория и выбери `personal-customization`. При желании переименуй её в `main`.
 5. Проверь, что в выбранной основной ветке есть `theme.css`, `manifest.json` и `src/custom/personal.scss`.
 6. Если GitHub Actions не активны, включи их в новом репозитории. В разделе **Actions** можно вручную запустить `Build theme.css`.
