@@ -1729,7 +1729,6 @@ body:is(.tab-top-left-stacked, :not(.css-settings-manager)) .mod-sidedock.mod-le
 }
 body:is(.tab-top-left-stacked, :not(.css-settings-manager)) .mod-sidedock.mod-left-split .mod-top-left-space .workspace-tab-header-container-inner {
   flex-direction: column;
-  width: -webkit-fill-available;
   width: stretch;
   gap: 0;
   padding: 0 8px;
@@ -2892,7 +2891,6 @@ body.is-mobile .workspace-drawer .nav-header {
 body.is-mobile .workspace-drawer .search-row,
 body.is-mobile .workspace-drawer .nav-header .search-input-container {
   margin: 8px var(--safe-area-inset-side) 0;
-  width: -webkit-fill-available;
   width: stretch;
 }
 body.is-mobile .workspace-drawer .nav-buttons-container {
@@ -7552,16 +7550,14 @@ body.baseline-support-off .style-settings-container .setting-item-heading[data-i
   .markdown-reading-view mark,
   .markdown-source-view mark,
   .markdown-rendered mark {
-    -webkit-box-decoration-break: clone;
-            box-decoration-break: clone;
+    box-decoration-break: clone;
     border-radius: var(--radius-s);
     padding: 2px 4px;
     color: var(--text-highlight, var(--text-normal));
   }
   .cm-s-obsidian span.cm-highlight,
   .cm-s-obsidian span.cm-highlight-color-widget {
-    -webkit-box-decoration-break: clone;
-            box-decoration-break: clone;
+    box-decoration-break: clone;
     padding-block: 2px;
   }
   .cm-line .cm-highlight:nth-child(1 of .cm-highlight) {
@@ -7676,7 +7672,6 @@ body.baseline-support-off .style-settings-container .setting-item-heading[data-i
   }
   .img-grid .markdown-preview-section .el-p > p:has(> .image-embed):has(span:last-child) img,
   .img-grid .markdown-preview-section .el-p > p:has(> img):not(:has(> :not(img))) img {
-    height: -webkit-fill-available;
     height: stretch;
     overflow: auto;
     object-fit: cover;
@@ -8511,7 +8506,6 @@ body.layout-cards:not(.is-mobile).hide-vault-switcher-off .mod-sidedock .workspa
 
 body.layout-border:not(.is-mobile):not(.status-bar-full) .mod-sidedock > .workspace-leaf-resize-handle {
   margin-bottom: 8px;
-  height: -webkit-fill-available;
   height: stretch;
 }
 body.layout-border:not(.is-mobile) .mod-sidedock > .workspace-leaf-resize-handle,
@@ -8519,7 +8513,6 @@ body.layout-border:not(.is-mobile) .workspace-split.mod-vertical > * > .workspac
   top: var(--header-height);
 }
 body.layout-border:not(.is-mobile) .mod-sidedock .workspace-tabs > .workspace-leaf-resize-handle {
-  width: -webkit-fill-available;
   width: stretch;
 }
 body.layout-border:not(.is-mobile) .mod-sidedock .workspace-tabs > .workspace-leaf-resize-handle:is(.mod-sidedock.mod-left-split .workspace-leaf-resize-handle) {
@@ -8803,7 +8796,6 @@ body.layout-fusion:not(.is-mobile) .mod-sidedock.mod-left-split {
   margin: 8px;
   box-shadow: var(--shadow-surface);
   border-radius: var(--radius-window, var(--radius-m));
-  height: -webkit-fill-available;
   height: stretch;
   overflow: hidden;
 }
@@ -9055,7 +9047,6 @@ body:not(.accented-interface) .checkbox-container {
 
 input[type=range]::-webkit-slider-thumb {
   border: none;
-  -webkit-transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
 }
 
@@ -11089,8 +11080,7 @@ li[data-task="-"] > p > input:checked:after {
 input[data-task="-"],
 li[data-task="-"],
 .HyperMD-list-line[data-task="-"] {
-  -webkit-text-decoration: var(--checklist-done-decoration);
-          text-decoration: var(--checklist-done-decoration);
+  text-decoration: var(--checklist-done-decoration);
   color: var(--text-faint);
 }
 
@@ -11433,7 +11423,6 @@ body:not(.banner-off) .mod-root .view-content:not(.pixel-banner, .has-banner) di
   position: absolute;
   inset: var(--view-top-spacing-markdown) var(--banner-image-inset) auto;
   border-radius: var(--banner-image-radius);
-  width: -webkit-fill-available;
   width: stretch;
   height: var(--banner-image-height);
   overflow: hidden;
@@ -11901,8 +11890,7 @@ body {
 }
 
 .cards table.dataview thead {
-  -webkit-user-select: none;
-          user-select: none;
+  user-select: none;
   width: 24px;
   height: 24px;
   float: right;
@@ -12254,7 +12242,6 @@ body.colorful-folders-side .nav-files-container > div > .nav-folder::before {
   left: 8px;
   border-radius: var(--radius-s);
   width: 4px;
-  height: -webkit-fill-available;
   height: stretch;
   content: "";
 }
@@ -12806,7 +12793,6 @@ body:not(.is-mobile).hover-sidedock.tab-top-left-stacked.mod-macos.is-hidden-fra
 body:not(.is-mobile).hover-ribbon.show-ribbon .workspace-ribbon {
   position: absolute;
   z-index: 12;
-  height: -webkit-fill-available;
   height: stretch;
   opacity: 0;
   transform: translateX(calc(-1 * var(--ribbon-width) + var(--hover-sidedock-trigger-area)));
@@ -14104,7 +14090,6 @@ https://tiniri.vlad.studio/
 /* Baseline Personal: optional custom controls.
    Everything is scoped to Style Settings classes.
    Disable a toggle to return to the original Baseline behaviour. */
-
 /* Rounded corners for key editor surfaces. */
 body.personal-rounded {
   --radius-s: calc(var(--personal-radius, 12px) * 0.66);
@@ -14115,10 +14100,12 @@ body.personal-rounded {
   --embed-radius: var(--personal-radius, 12px);
   --nav-item-radius: var(--personal-radius, 12px);
 }
+
 body.personal-rounded .markdown-rendered :is(img:not(.emoji), blockquote, pre, .callout, .markdown-embed),
 body.personal-rounded .markdown-rendered table {
   border-radius: var(--personal-radius, 12px);
 }
+
 body.personal-rounded .markdown-rendered table {
   border-collapse: separate;
   border-spacing: 0;
@@ -14128,6 +14115,7 @@ body.personal-rounded .markdown-rendered table {
 body.personal-glass-headers {
   --personal-glass-surface: color-mix(in srgb, var(--background-secondary) var(--personal-glass-opacity, 35%), transparent);
 }
+
 body.personal-glass-headers :is(.workspace .mod-root .view-header, .workspace .mod-root .workspace-tab-header-container, .status-bar, .mobile-navbar) {
   background-color: var(--personal-glass-surface) !important;
   -webkit-backdrop-filter: blur(var(--personal-glass-blur, 22px)) saturate(160%);
@@ -14145,6 +14133,7 @@ body.personal-clean-tree {
   --nav-indentation-guide-width: 0px;
   --nav-indentation-guide-color: transparent;
 }
+
 body.personal-clean-tree .nav-folder-children {
   border-inline-start: 0 !important;
 }
@@ -14157,6 +14146,7 @@ body.personal-compact-headings {
   --h3-line-height: 1.3;
   --h4-line-height: 1.3;
 }
+
 body.personal-compact-headings .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
   line-height: 1.3;
 }
